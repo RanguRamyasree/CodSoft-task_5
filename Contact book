@@ -1,0 +1,44 @@
+from contact_book import ContactBook
+
+print("\nWELCOME TO CONTACT_BOOK\n")
+
+contact_book=ContactBook()
+
+is_on=True
+while is_on:
+
+#add contacts
+  input_u=(input("enter what you want to do(add,delete,display,search,update,exit) : ")).lower()
+  if input_u=="add":
+    n=int(input("enter how many contacts you like to add"))
+    for i in range(n):
+            name=input("enter contact name : ")
+            email=input("enter email_id : ")
+            phone=input("enter phone number : ")
+            address=input("enter the address : ")
+            contact_book.add_list(name,phone,email,address)
+
+  if input_u=="update":
+
+    #update contacts
+    choice=input("enter which contact you want to update : ")
+    old_contact=input("enter which value you want to update : ")
+    new=input("enter new values : ")
+    contact_book.update(choice,old_contact,new)
+
+  if input_u == "search":
+    #search
+    search_cont=input("which contact do you want to search : ")
+    contact_book.search(search_cont)
+
+  if input_u=="delete":
+    #delete
+    deleted=input("which contact do you want to delete : ")
+    contact_book.delete(deleted)
+
+  if input_u=="exit":
+      is_on=False
+
+  if input_u=="display":
+      #display
+      contact_book.display()
