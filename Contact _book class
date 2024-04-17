@@ -1,0 +1,44 @@
+class ContactBook:
+     def __init__(self):
+         self.contact_list={}
+
+
+     def add_list(self,name, phone, email, address):
+         self.contact_list[name] = {'phone': phone, 'email_id': email, 'address': address}
+         print("added successfully!")
+
+     def display(self):
+         if self.contact_list:
+             print("\nThe contact_list in your contact book is : ")
+             for i, j in self.contact_list.items():
+
+              print(f"contact_name : {i} - phone_number : {j['phone']}")
+         else:
+             print("empty")
+     def delete(self,choices):
+         self.contact_list.pop(choices)
+         print("the contact deleted successfully!")
+
+     def update(self,choice, cont, new):
+         if choice in self.contact_list:
+
+
+             if cont == self.contact_list[choice]['phone']:
+                 self.contact_list[choice]['phone'] = new
+                 print("successfully updated")
+             elif cont == self.contact_list[choice]['email_id']:
+                 self.contact_list[choice]['email_id'] = new
+                 print("successfully updated")
+             elif cont == self.contact_list[choice]['address']:
+                 self.contact_list[choice]['address'] = new
+                 print("successfully updated")
+             else:
+                 print("not found")
+         else:
+             print("please enter a valid contact")
+     def search(self,search_con):
+         if search_con in self.contact_list:
+             print("\nthe contact you have searched is : ")
+             print(f"name : {search_con} - phone : {self.contact_list[search_con]['phone']} -"
+                   f" email : {self.contact_list[search_con]['email_id']} - address : {self.contact_list[search_con]
+                   ['address']}")
